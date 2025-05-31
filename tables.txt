@@ -1,0 +1,6 @@
+Project Hub
+
+Tables
+-Users tables (id,name,mail,password)
+-Clubs tables(id,name,password)
+-Events tables(id,title,category,description,date,hour,location,Author)

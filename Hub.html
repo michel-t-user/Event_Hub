@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Campus Events Hub</title>
+  <link rel="stylesheet" href="styleHub.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Campus Events Hub</div>
+      <ul class="nav-links">
+        <li><a href="Hub.html">Accueil</a></li>
+        <li><a href="login.html" id="loginBtn">Connexion</a></li>
+        <li><a href="registration.html">Inscription</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- Section des filtres 
+  <section class="filters">
+    <label for="category">Categorie</label>
+    <select id="category">
+      <option value="all">Toutes Catégories</option>
+      <option value="workshop">Atelier</option>
+      <option value="sports">Sport</option>
+      <option value="club">Club</option>
+      <option value="study">Groupe d'étude</option>
+    </select>
+    <label for="date">Date:</label>
+    <input type="date" id="date" />
+  </section>-->
+
+  <!-- Section principale -->
+  <main>
+    <section class="hero">
+      <h1>Ne manque plus aucun événement sur le campus</h1>
+      <p>Explore, partage et participe aux activités de l'INPT</p>
+      <a href="login.html" class="cta-button">Voir les événements</a>
+    </section>
+
+    <section class="user_page">
+      <h2>Événements à venir</h2>
+      <div class="event-grid">
+        <div class="event-card">
+          <h3>Atelier CV & Entretiens</h3>
+          <p>Prépare-toi pour les stages avec cet atelier animé par des pros RH.</p>
+          <p><strong>Date :</strong> 25 mai 2025</p>
+          <p><strong>Lieu :</strong> Salle A1</p>
+          <a href="login.html">Détails</a>
+        </div>
+        <div class="event-card">
+          <h3>Atelier CV & Entretiens</h3>
+          <p>Prépare-toi pour les stages avec cet atelier animé par des pros RH.</p>
+          <p><strong>Date :</strong> 25 mai 2025</p>
+          <p><strong>Lieu :</strong> Salle A1</p>
+          <a href="login.html">Détails</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Campus Events Hub - Tous droits réservés.</p>
+  </footer>
+
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Connexion</h2>
+      <form action="/login" method="POST">
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" name="password" required />
+
+        <button type="submit">Se connecter</button>
+      </form>
+    </div>
+  </div>
+<script src="script.js"></script>
+</body>
+</html>

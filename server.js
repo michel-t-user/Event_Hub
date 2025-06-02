@@ -10,18 +10,20 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+
+// Créer un event -->venu depuis create_event.js de l'admin
 app.post('/api/create_event', async(req, res) => {
     try {
         console.log("posting request has arrived from api/create_event");
         const post = req.body;
         const newpost = await pool.query("INSERT INTO \"Events\"(title,category,description,date,hour,location) values ($1, $2, $3, $4, $5, $6)    RETURNING*", [post.title, post.category, post.description, post.date, post.hour, post.location]
         );
-        //res.json(newpost.rows[0]);
     } catch (err) {
         console.error(err.message);
     }
 }); 
 
+// Récupérer tous les events -->venu depuis admin.js de l'admin
 app.get('/api/get_events', async(req, res) => {
     try {
         console.log("getting request has arrived from api/get_events");
@@ -32,6 +34,7 @@ app.get('/api/get_events', async(req, res) => {
     }
 });
 
+// Supprimer un event avec son id-->venu depuis admin.js de l'admin
 app.delete('/api/delete_event/:id', async(req, res) => {
     try {
         console.log("deleting request has arrived from api/delete_event");
@@ -44,6 +47,7 @@ app.delete('/api/delete_event/:id', async(req, res) => {
     }
 });
 
+// Se connecter à un compte -->venu depuis login.js de l'admin
 app.post('/api/login', async(req, res) => {
     try {
         console.log("posting request has arrived from api/login");
@@ -61,13 +65,15 @@ app.post('/api/login', async(req, res) => {
     }
 });
 
+// S'inscrire à un compte -->venu depuis register.js de l'admin
 app.post('/api/register', async(req, res) => {
     try {
         console.log("posting request has arrived from api/register");
         const { username, email, password } = req.body;
         const existingUser = await pool.query("SELECT * FROM \"users\" WHERE mail = $1", [email]);
-console.log("Checking for existing user with email:", email);
-        if (existingUser.rows.length > 0) {console.log("User already exists with email:", email);
+        console.log("Checking for existing user with email:", email);
+        if (existingUser.rows.length > 0) {
+            console.log("User already exists with email:", email);
             return res.json({ success: false, message: "Compte déjà existant" });
         }
 
@@ -81,6 +87,7 @@ console.log("Checking for existing user with email:", email);
     }
 });
 
+// Récupérer tous les events pour l'utilisateur -->venu depuis user_page.js de l'utilisateur
 app.get('/api/get_events_user', async(req, res) => {
     try {
         console.log("getting request has arrived from api/get_events_user");
@@ -90,6 +97,7 @@ app.get('/api/get_events_user', async(req, res) => {
         console.error(err.message);
     }
 });
+
 
 app.listen(port, () => {
     console.log("Server is listening to port " + port)

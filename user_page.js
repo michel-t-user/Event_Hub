@@ -1,14 +1,19 @@
 var userDropdown = document.getElementById("userDropdown");
 
 function toggleMenu() {
-  userDropdown.classList.toggle("show");
+    const dropdown = document.getElementById("userDropdown");
+    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
 }
 
-window.onclick = function(event) {
-  if (!event.target.matches('.user-icon')) {
-    userDropdown.classList.remove("show");
-  }
-}
+// Fermer le menu si on clique ailleurs
+document.addEventListener("click", function(event) {
+    const menu = document.querySelector(".user-menu");
+    const dropdown = document.getElementById("userDropdown");
+
+    if (!menu.contains(event.target)) {
+        dropdown.style.display = "none";
+    }
+    });
 
 fetch('http://localhost:3000/api/get_events_user')
   .then(response => response.json())

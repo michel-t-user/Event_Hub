@@ -12,24 +12,23 @@
     <nav class="navbar">
         <div class="logo">Campus Events Hub</div>
         <ul class="nav-links">
-        <li><a href="create_event.html">Créer un événement</a></li>
-        <li><a href="admin.html" class="active">Mes Événements</a></li>
-        <li>
-          <div class="user-menu">
-            <div class="user-icon" onclick="toggleMenu()" title="Mon compte"><img src="user.svg" alt="User profile" style="width:22px;height:22px;" />
-            </div>
-            <div class="dropdown" id="userDropdown">
-              <a href="profil.html">Mes Infos</a>
-              <a href="Hub.html">Déconnexion</a>
-            </div>
-          </div>
-        </li>
+            <li><a href="create_event.html">Créer un événement</a></li>
+            <li><a href="admin.html" class="active">Mes Événements</a></li>
+            <li>
+                <div class="user-menu">
+                    <div class="user-icon" onclick="toggleMenu()" title="Mon compte"><img src="user.svg" alt="User profile" style="width:22px;height:22px;" /></div>
+                    <div class="dropdown" id="userDropdown">
+                        <a href="profil.html">Mes Infos</a>
+                        <a href="Hub.html">Déconnexion</a>
+                    </div>
+                </div>
+            </li>
         </ul>
     </nav>
 </header>
 <main>
-    <section class="form-section">
-        <div class="form-container">
+    <section class="form-section-admin">
+        <div class="form-container-admin">
             <h2>Créer un événement</h2>
             <form action="#" method="POST" id="event-form">
                 <label for="title">Titre de l'événement :</label>

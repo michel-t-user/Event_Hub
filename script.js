@@ -14,15 +14,9 @@ document.addEventListener("click", function(event) {
     });
 
 function logout() {
-    // Simuler la déconnexion
     alert("Vous avez été déconnecté.");
-    // Rediriger vers la page de connexion ou d'accueil
-    window.location.href = "login.html"; // Remplacez par l'URL de votre page de connexion
+    window.location.href = "login.html"; 
 }
 function openEvent(){
-    // Simuler l'ouverture d'un événement
-    //alert("Événement ouvert.");
-    // Rediriger vers la page de l'événement
-    window.location.href = "events.html"; // Remplacez par l'URL de votre page d'événement
-    
+    window.location.href = "events.html"; 
 }

@@ -1,3 +1,4 @@
+//Récupérer les événements depuis l'API et les afficher dans la grille
 fetch('http://localhost:3000/api/get_events')
     .then(response => response.json())
     .then(data => {
@@ -63,4 +64,18 @@ fetch('http://localhost:3000/api/get_events')
     })
     .catch(error => {
         console.error("Erreur lors de la récupération des événements :", error);
+    });
+function toggleMenu() {
+    const dropdown = document.getElementById("userDropdown");
+    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+}
+
+// Fermer le menu si on clique ailleurs
+document.addEventListener("click", function(event) {
+    const menu = document.querySelector(".user-menu");
+    const dropdown = document.getElementById("userDropdown");
+
+    if (!menu.contains(event.target)) {
+        dropdown.style.display = "none";
+    }
     });

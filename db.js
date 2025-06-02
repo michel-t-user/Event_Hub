@@ -1,16 +1,13 @@
 
 const Pool = require('pg').Pool;
 const { types } = require('pg');
+types.setTypeParser(1082, (val) => val);// gérer les dates correctement
 
-// 1082 = OID du type DATE
-types.setTypeParser(1082, (val) => val);
-
-
-// this code will work and a table will be created if you have already created the "testWad" database.
+// Se connecter la base Hub
 const pool = new Pool({
     user: "postgres",
-    password: "supramaroc", // Enter your password here
-    database: "Hub", //Try to use the same name for your database
+    password: "supramaroc",
+    database: "Hub", 
     host: "localhost",
     port: "5432"
 });

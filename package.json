@@ -1,0 +1,26 @@
+{
+  "name": "my_hub",
+  "version": "1.0.0",
+  "description": "\"first test for hub\"",
+  "main": "create_event.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michel-t-user/Event_Hub.git"
+  },
+  "author": "Michel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michel-t-user/Event_Hub/issues"
+  },
+  "homepage": "https://github.com/michel-t-user/Event_Hub#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "lodash": "^4.17.21",
+    "pg": "^8.16.0"
+  }
+}

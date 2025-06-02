@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Événements - Campus Events Hub</title>
   <link rel="stylesheet" href="styleHub.css" />
-  <script defer src="search.js"></script>
+  <script defer src="user_page.js"></script>
 </head>
 <body>
   <header>
@@ -15,11 +15,10 @@
         <li><a href="user_page.html" class="active">Tous les événements</a></li>
         <li>
           <div class="user-menu">
-            <div class="user-icon" onclick="toggleMenu()" title="Mon compte"><img src="user.svg" alt="User profile icon showing a simple outline of a person with a circular head and shoulders, neutral expression, black lines on a white background, used for account access in the navigation bar" style="width:22px;height:22px;" />
+            <div class="user-icon" onclick="toggleMenu()" title="Mon compte"><img src="user.svg" alt="User profile" style="width:22px;height:22px;" />
             </div>
             <div class="dropdown" id="userDropdown">
-              <a href="login.html">Mon profil</a>
-              <a href="#">Paramètres</a>
+              <a href="profil.html">Mes Infos</a>
               <a href="Hub.html">Déconnexion</a>
             </div>
           </div>
@@ -44,42 +43,6 @@
     <section class="user_page">
       <h2>Liste des événements</h2>
       <div class="event-grid" id="eventGrid">
-        <div class="event-card">
-          <h3 title="Match de football">Match de football</h3>
-          <p>Venez supporter votre équipe locale.</p>
-          <p><strong>Date :</strong> 24 mai 2025</p>
-          <p><strong>Lieu :</strong> Stade universitaire</p>
-        </div>
-        <div class="event-card" >
-          <h3 title="Atelier Python débutant">Atelier Python débutant</h3>
-          <p>Introduction à la programmation avec Python.</p>
-          <p><strong>Date :</strong> 27 mai 2025</p>
-          <p><strong>Lieu :</strong> Salle C3</p>
-        </div>
-        <div class="event-card">
-          <h3 title="Atelier C++ débutant">Atelier C++ débutant</h3>
-          <p>Introduction à la programmation avec C++.</p>
-          <p><strong>Date :</strong> 28 mai 2025</p>
-          <p><strong>Lieu :</strong> Salle C4</p>
-        </div>
-        <div class="event-card">
-          <h3 title="Forum Geni Entreprises">Forum Geni Entreprises</h3>
-          <p>Introduction à la programmation avec Python.</p>
-          <p><strong>Date :</strong> 27 mai 2025</p>
-          <p><strong>Lieu :</strong> Salle C3</p>
-        </div>
-        <div class="event-card">
-          <h3 title="Match de football">Match de football</h3>
-          <p>Venez supporter votre équipe locale.</p>
-          <p><strong>Date :</strong> 24 mai 2025</p>
-          <p><strong>Lieu :</strong> Stade universitaire</p>
-        </div>
-        <div class="event-card">
-          <h3 title="Conférence sur l'IA">Conférence sur l'IA</h3>
-          <p>Découvrez les dernières avancées en intelligence artificielle.</p>
-          <p><strong>Date :</strong> 30 mai 2025</p>
-          <p><strong>Lieu :</strong> Amphi A</p>
-        </div>
       </div>
     </section>
   </main>

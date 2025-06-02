@@ -9,10 +9,10 @@
     src: url(fonts/GomePixel-Rounded.otf);
 }
 body, input, textarea, select, button {
-    font-family: 'Ma Police', sans-serif;
+    font-family: '', sans-serif;
 }
 body {
-  font-family: 'Ma police';
+  font-family: '';
   line-height: 1.6;
   background-color: #f4f4f4;
   color: #333;
@@ -222,7 +222,7 @@ footer {
   padding: 2.5rem;
   border-radius: 8px;
   width: 100%;
-  max-width: 400px;
+  max-width: 750px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -346,3 +346,37 @@ footer {
     box-shadow: 0 8px 24px rgba(52, 152, 219, 0.2);
     border: 2px solid #2980b9;
   }
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* Bouton Éditer */
+.btn.edit {
+  background-color: #2980b9;
+  color: white;
+}
+
+.btn.edit:hover {
+  background-color: #0056b3;
+}
+
+/* Bouton Supprimer */
+.btn.delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn.delete:hover {
+  background-color: #a71d2a;
+}

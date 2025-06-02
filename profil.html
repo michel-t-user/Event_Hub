@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profil</title>
+    <link rel="stylesheet" href="styleHub.css">
+    <script src="profil.js" defer></script>
+</head>
+<body>
+     <header>
+    <nav class="navbar">
+      <div class="logo">Campus Events Hub</div>
+      <ul class="nav-links">
+        <li><a href="user_page.html" class="active">Tous les événements</a></li>
+        <li>
+          <div class="user-menu">
+            <div class="user-icon" onclick="toggleMenu()" title="Mon compte"><img src="user.svg" alt="User profile" style="width:22px;height:22px;" />
+            </div>
+            <div class="dropdown" id="userDropdown">
+              <a href="profil.html">Mes Infos</a>
+              <a href="Hub.html">Déconnexion</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+<main>
+    <div>
+        <img src="me.png" alt="Your Profile Picture" class="profile-picture" weidth="150" height="150">
+    </div>
+    
+    <div>
+       <h1>Mon Profil</h1>
+    <form id="profile-form">
+        <label for="username">Nom d'utilisateur :</label>
+        <p><span id="username-display"></span></p>
+        <label for="auteur">Auteur :</label>
+        <p><span id="auteur"></span></p>
+
+        <label for="email">Email :</label>
+        <p><span id="email-display"></span></p>      
+        <label for="password" >Mot de passe :</label>
+        <p><span id="password-label">********</span></p>
+        <label for="password-change"> Changer de mot de passe: </label>
+        <input type="password" id="password-change" name="password-change" placeholder="Nouveau mot de passe">
+
+        <button type="submit" class="btn edit">Mettre à jour</button>
+    </form><br>
+    
+    <button id="delete-account" class="btn delete">Supprimer mon compte</button>
+    </div>
+</main>
+</body>
+</html>

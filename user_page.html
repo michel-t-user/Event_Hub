@@ -12,7 +12,7 @@
     <nav class="navbar">
       <div class="logo">Campus Events Hub</div>
       <ul class="nav-links">
-        <li><a href="user_page.html" class="active">Tous les événements</a></li>
+        <li><a href="user_page.html" class="active">Tous les événements du Hub</a></li>
         <li>
           <div class="user-menu">
             <div class="user-icon" onclick="toggleMenu()" title="Mon compte"><img src="user.svg" alt="User profile" style="width:22px;height:22px;" />
@@ -27,6 +27,7 @@
     </nav>
   </header>
   <section class="filters">
+    <h3>Filtrer les événements</h3>
     <label for="category">Categorie</label>
     <select id="category">
       <option value="all">Toutes Catégories</option>
@@ -37,6 +38,13 @@
     </select>
     <label for="date">Date:</label>
     <input type="date" id="date" />
+   
+    <span class="filter-icon" title="Filtrer" id="filterIcon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="3 4 21 4 14 14 14 20 10 20 10 14 3 4"></polygon>
+      </svg>
+    </span>
+    <!-- <button class="filter-button" id="filterButton">Filtrer</button> -->
   </section>
 
   <main>

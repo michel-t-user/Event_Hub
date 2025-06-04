@@ -8,18 +8,32 @@ var submitButton = document.getElementById("submit-button");
 
 
 submitButton.addEventListener("click", function(event) {
-    //event.preventDefault();
+    event.preventDefault();
 
-    // Validate password match
+    if (username.value.trim() === "" || email.value.trim() === "" || password.value.trim() === "") {
+        alert("Veuillez remplir tous les champs !");
+        return;
+    }
+    if (!/^.+@inpt\.ac\.ma$/.test(email.value)) {
+        alert("Veuillez entrer une adresse e-mail valide de l'INPT (ex: user@inpt.ac.ma)");
+        return;
+    }
+    if (password.value.length < 6) {
+        alert("Le mot de passe doit contenir au moins 6 caractères !");
+        return;
+    }
     if (password.value !== confirmPassword.value) {
         alert("Mot de passe différent !");
         return;
     }
-
+    
+    
+    
     formData = {
         username: username.value,
         email: email.value,
-        password: password.value
+        password: password.value,
+        auteur: false 
     };
 console.log("formData:", formData);
     // Send the registration data to the server
@@ -30,13 +44,16 @@ console.log("formData:", formData);
         },
         body: JSON.stringify(formData)
     })
-    .then(data => {
+    .then(response => response.json())
+    .then(data => { 
+        console.log("Response from server:", data);
         if (data.success) {
             alert("inscription réussie !");
             sessionStorage.setItem('user', JSON.stringify(data.user));
             window.location.href = 'login.html'; // Redirect to login page after successful registration
-        } else {
-            alert(data.message); // Show error message from server
+        } else {    
+            alert(data.message);
+            window.location.href = 'registration.html'; // Redirect to registration page on error
         }
     })
     .catch((error) => {

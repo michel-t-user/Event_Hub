@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>admin</title>
+    <link rel="stylesheet" href="styleHub.css" />
+    <script defer src="edit_event.js"></script>
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <div class="logo">Campus Events Hub</div>
+        <ul class="nav-links">
+        <li><a href="create_event.html">Créer un événement</a></li>
+        <li><a href="admin.html" class="active">Mes événements</a></li>
+        <li><a href="admin_user_page.html">Tous les événements du Hub</a></li>
+        <li>
+            <div class="user-menu">
+            <div class="user-icon" onclick="toggleMenu()" title="Mon compte"><img src="user.svg" alt="User profile" style="width:22px;height:22px;" />
+            </div>
+            <div class="dropdown" id="userDropdown">
+                <a href="profil_admin.html">Mes Infos</a>
+                <a href="Hub.html">Déconnexion</a>
+            </div>
+            </div>
+        </li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section class="form-section-admin">
+        <div class="form-container-admin">
+            <h2>Modifier un événement</h2>
+            <form action="#" method="POST" id="event-form">
+                <label for="title">Titre de l'événement :</label>
+                <input type="text" id="title" name="title" placeholder="ex: Conférence IA 2025" required />
+                <label for="category">Catégorie :</label>
+                <select id="category">
+                    <option value="workshop">Atelier</option>
+                    <option value="sport">Sport</option>
+                    <option value="club">Club</option>
+                    <option value="study">Groupe d'étude</option>
+                </select>
+                <label for="description">Description :</label>
+                <textarea id="description" name="description" placeholder=" Décris brièvement l'événement" rows="10" cols="130" required></textarea>
+                <label for="date">Date :</label>
+                <input type="date" id="date" name="date" required />
+                <label for="hour">Heure :</label>
+                <input type="time" id="hour" name="hour" required />
+                <label for="location">Lieu :</label>
+                <input type="text" id="location" name="location" placeholder="ex: Amphi A, Salle B1, En ligne..." required />
+                <button type="submit" id="submit-button" onclick="updateEvent()">Modifier</button>
+            </form>
+        </div>
+</section>
+
+</main>
+<footer>
+    <p>&copy; 2025 Campus Events Hub - Tous droits réservés.</p>
+</footer>
+
+</body>
+</html>

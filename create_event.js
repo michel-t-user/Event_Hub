@@ -8,6 +8,7 @@ var date=document.getElementById("date");
 var hour=document.getElementById("hour");
 var locationInput=document.getElementById("location"); 
 var submitButton=document.getElementById("submit-button");
+var user = JSON.parse(sessionStorage.getItem('user'));
 
 // Gérer l'événement de soumission du formulaire
 submitButton.addEventListener("click", function(event) {
@@ -19,7 +20,8 @@ submitButton.addEventListener("click", function(event) {
         description: description.value,
         date: date.value,
         hour: hour.value,
-        location: locationInput.value
+        location: locationInput.value,
+        author: user ? user.id : null 
     };
     window.location.reload();//recharger la page après l'envoi du formulaire --pour reset en fait
     // Envoyer les données du formulaire au serveur
@@ -38,7 +40,7 @@ submitButton.addEventListener("click", function(event) {
     console.error("Error:", error);
 });
 
-   formData = {};
+formData = {};
 });
 function toggleMenu() {
     const dropdown = document.getElementById("userDropdown");

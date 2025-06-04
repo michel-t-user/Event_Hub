@@ -18,12 +18,14 @@ console.log("Login button clicked");
     })
 })
 .then(response => response.json())
-.then(data => {
+.then(data => {console.log("Response from server:", data);
     if (data.success) {
         sessionStorage.setItem('user', JSON.stringify(data.user)); // Stocker les données de l'utilisateur dans sessionStorage
+       
+        // Convertir la valeur auteur en booléen
         // Rediriger l'utilisateur vers la page appropriée en fonction de son rôle
-        if (JSON.parse(sessionStorage.getItem('user')).auteur === 'True') {
-            window.location.href = 'admin_page.html';
+        if (data.user.auteur) {
+            window.location.href = 'admin.html';
         } else {
             window.location.href = 'user_page.html';
         }

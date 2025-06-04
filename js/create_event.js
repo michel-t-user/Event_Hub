@@ -24,6 +24,7 @@ submitButton.addEventListener("click", function(event) {
         author: user ? user.id : null 
     };
     window.location.reload();//recharger la page après l'envoi du formulaire --pour reset en fait
+    
     // Envoyer les données du formulaire au serveur
     fetch('http://localhost:3000/api/create_event', {
     method: 'POST',
@@ -42,6 +43,7 @@ submitButton.addEventListener("click", function(event) {
 
 formData = {};
 });
+
 function toggleMenu() {
     const dropdown = document.getElementById("userDropdown");
     dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";

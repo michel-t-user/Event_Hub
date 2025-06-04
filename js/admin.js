@@ -19,18 +19,18 @@ fetch(`http://localhost:3000/api/get_events_admin/${userId}`)
             editBtn.className = "btn edit";
             editBtn.textContent = "Éditer";
             divbtn.appendChild(editBtn);
+
             editBtn.onclick = function() {
-                
                 console.log("Éditer l'événement avec ID:", data[i].id);
                 // Exemple de redirection vers une page d'édition
                 window.location.href = `edit_event.html?id=${data[i].id}`;
-
             };
 
             let deleteBtn = document.createElement("button");
             deleteBtn.className = "btn delete";
             deleteBtn.textContent = "Supprimer";
             divbtn.appendChild(deleteBtn);
+
             deleteBtn.onclick = function() {
                 let confirmation = confirm("Êtes-vous sûr de vouloir supprimer cet événement ?");
                 if (confirmation) {
@@ -157,7 +157,9 @@ function applyFilters(category, date) {
                 }
             };
             editBtn.onclick = function() {
-            
+                console.log("Éditer l'événement avec ID:", data[i].id);
+                // Exemple de redirection vers une page d'édition
+                window.location.href = `edit_event.html?id=${data[i].id}`;
             };
         }
         if (data.length === 0) {

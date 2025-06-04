@@ -17,7 +17,7 @@ fetch(`http://localhost:3000/api/get_event/${id}`)
         console.error("Error fetching event data:", error);
     });
 
-    function updateEvent() {
+function updateEvent() {
         const title = document.getElementById("title").value;
         const category = document.getElementById("category").value;
         const description = document.getElementById("description").value;

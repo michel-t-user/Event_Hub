@@ -1,17 +1,18 @@
-/* Reset */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 @font-face {
     font-family: 'Ma police';
-    src: url(fonts/WDXLLubrifontTC-Regular.ttf) format('opentype');
+    src: url("../fonts/WDXLLubrifontTC-Regular.ttf") format('opentype');
     /*font-weight: normal;*/
 }
 @font-face {
     font-family: 'Ma police 2';
-    src: url(fonts/VCR_OSD_MONO_1.001.ttf) format('opentype');
+    src: url("../fonts/VCR_OSD_MONO_1.001.ttf") format('opentype');
 }
 body, input, textarea, select, button {
     font-family: 'Ma police', sans-serif;

@@ -17,8 +17,8 @@ document.addEventListener("click", function(event) {
     });
 
 fetch('http://localhost:3000/api/get_events_user')
-  .then(response => response.json())
-  .then(data => {
+.then(response => response.json())
+.then(data => {
     console.log("Liste des événements :", data);
         for (let i = 0; i < data.length; i++) {
             

@@ -9,6 +9,7 @@ if (user) {
 const passwordInput = document.getElementById("password-label");
 var NewPasswordInput = document.getElementById("password-change");
 passwordInput.value = user.password;
+
 function togglePasswordVisibility() {
     if (passwordInput.type === "password") {
         passwordInput.type = "text";

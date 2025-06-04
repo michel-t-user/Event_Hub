@@ -3,9 +3,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>profil</title>
-    <link rel="stylesheet" href="styleHub.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <script src="profil.js" defer></script>
+    <link rel="stylesheet" href="css/styleHub.css">
+    <script src="js/profil.js" defer></script>
 </head>
 <body>
 <header>
@@ -17,7 +16,7 @@
         <li><a href="admin_user_page.html">Tous les événements du Hub</a></li>
         <li>
             <div class="user-menu">
-            <div class="user-icon" onclick="toggleMenu()" title="Mon compte"><img src="user.svg" alt="User profile" style="width:22px;height:22px;" />
+            <div class="user-icon" onclick="toggleMenu()" title="Mon compte"><img src="img/user.svg" alt="User profile" style="width:22px;height:22px;" />
             </div>
             <div class="dropdown" id="userDropdown">
                 <a href="profil_admin.html">Mes Infos</a>
@@ -30,7 +29,7 @@
 </header>
     <main>
         <div>
-            <img src="me.png" alt="Your Profile Picture" class="profile-picture" width="150" height="150">
+            <img src="img/me.png" alt="Your Profile Picture" class="profile-picture" width="150" height="150">
         </div>
         <div>
             <h1>Profil</h1>
@@ -42,7 +41,7 @@
             <span id="email-display"></span><br>
             <label for="password"><strong>Mot de passe :</strong></label>
             <input type="password" id="password-label" name="password-label" value="********" readonly>
-            <span class="toggle-password" onclick="togglePasswordVisibility()" title="Afficher/Masquer"><img src="eye.svg" style="width: 10px;height: 10px;" alt=""></span><br>
+            <span class="toggle-password" onclick="togglePasswordVisibility()" title="Afficher/Masquer"><img src="img/eye.svg" style="width: 10px;height: 10px;" alt=""></span><br>
             <label for="password-change"><strong>Changer de mot de passe :</strong></label>
             <input type="password" id="password-change" name="password-change" placeholder="Nouveau mot de passe">
             <button type="submit" class="btn edit">Mettre à jour</button><br>

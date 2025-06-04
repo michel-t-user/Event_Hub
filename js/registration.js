@@ -26,9 +26,7 @@ submitButton.addEventListener("click", function(event) {
         alert("Mot de passe différent !");
         return;
     }
-    
-    
-    
+
     formData = {
         username: username.value,
         email: email.value,
@@ -60,8 +58,4 @@ console.log("formData:", formData);
         console.error("Error:", error);
     });
 
-    // Clear all input fields in the form
-    /*Array.from(form.querySelectorAll('input')).forEach(element => {
-        element.value = '';
-    });*/
 });

@@ -30,17 +30,6 @@ app.post('/api/create_event', async(req, res) => {
     }
 }); 
 
-// Récupérer tous les events -->venu depuis admin.js de l'admin
-app.get('/api/get_events', async(req, res) => {
-    try {
-        console.log("getting request has arrived from api/get_events");
-        const allEvents = await pool.query("SELECT * FROM \"Events\"");
-        res.json(allEvents.rows);
-    } catch (err) {
-        console.error(err.message);
-    }
-});
-
 // Supprimer un event avec son id-->venu depuis admin.js de l'admin
 app.delete('/api/delete_event/:id', async(req, res) => {
     try {
@@ -129,7 +118,7 @@ app.get('/api/get_events_user_filtered', async(req, res) => {
     }
 });
 
-// Récupérer les événements de l'administrateur
+// Récupérer les événements de l'admin filtrés pour l'admin
 app.get('/api/get_admin_filtered', async(req, res) => {
     try {
         const { user, category, date } = req.query;
@@ -169,6 +158,7 @@ app.put('/api/update_password/:id', async(req, res) => {
     }
 });
 
+// Récupérer les événements de l'administrateur -->venu depuis admin.js de l'admin
 app.get('/api/get_events_admin/:id', (req, res) => {
     const { id } = req.params;
     // Récupérer les événements de l'administrateur avec l'ID spécifié
@@ -182,6 +172,7 @@ app.get('/api/get_events_admin/:id', (req, res) => {
         });
 });
 
+// Récupérer un événement spécifique avec son ID -->venu depuis edit_event.js de l'admin
 app.get('/api/get_event/:id', (req, res) => {
     const { id } = req.params;
     // Récupérer un événement spécifique avec l'ID spécifié
@@ -200,6 +191,7 @@ app.get('/api/get_event/:id', (req, res) => {
 }
 );
 
+// Mettre à jour un événement spécifique avec son ID -->venu depuis edit_event.js de l'admin
 app.put('/api/update_event/:id', (req, res) => {
     const { id } = req.params;
     const { title, category, description, date, hour, location } = req.body;
@@ -218,6 +210,18 @@ app.put('/api/update_event/:id', (req, res) => {
             res.status(500).json({ success: false, message: "Internal server error" });
         });
 }); // <-- Close the app.put handler properly
+
+// Supprimer un compte utilisateur -->venu depuis profil.js de l'utilisateur
+app.delete('/api/delete_account/:id', async(req, res) => {
+    try {
+        const { id } = req.params;
+        const deleteUser = await pool.query("DELETE FROM \"users\" WHERE id = $1", [id]);
+        res.json({ success: true, message: "Compte supprimé avec succès" });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ success: false, message: "Erreur lors de la suppression du compte" });
+    }
+});
 
 app.listen(port, () => {
     console.log("Server is listening to port " + port)

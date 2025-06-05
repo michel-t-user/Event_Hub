@@ -1,6 +1,6 @@
 //Récupérer les événements depuis l'API et les afficher dans la grille
 var user = JSON.parse(sessionStorage.getItem('user'));
-const userId = user.id;
+var userId = user.id;
 var filterIcon = document.getElementById("filterIcon");
 
 fetch(`http://localhost:3000/api/get_events_admin/${userId}`)

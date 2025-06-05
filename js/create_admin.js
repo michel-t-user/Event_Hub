@@ -1,17 +1,18 @@
 var formData = {};
 formData = {
-        username: "A2S",
-        email: "A2S@inpt.ac.ma",
-        password: "A2S1234",
+        username: "Great Debaters",
+        email: "great_debaters@inpt.ac.ma",
+        password: "inpt-great-debaters@2025",
         auteur: true
     };
-     fetch('http://localhost:3000/api/register', {
+    fetch('http://localhost:3000/api/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(formData)
     })
+    .then(response => response.json())
     .then(data => {
         if (data.success) {
             console.log("Inscription réussie !");

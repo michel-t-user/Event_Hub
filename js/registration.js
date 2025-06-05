@@ -1,3 +1,4 @@
+sessionStorage.clear();
 var formData = {};
 var form = document.getElementById("form-section");
 var username = document.getElementById("fullname");
@@ -59,3 +60,4 @@ console.log("formData:", formData);
     });
 
 });
+sessionStorage.clear();

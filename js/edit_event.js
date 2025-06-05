@@ -1,5 +1,6 @@
-var id= new URLSearchParams(window.location.search).get("id");
-console.log("ID de l'événement à éditer :", id);    
+const id = new URLSearchParams(window.location.search).get("id");
+console.log("ID de l'événement à éditer :", id);
+
 fetch(`http://localhost:3000/api/get_event/${id}`)
     .then(response => response.json())
     .then(data => {
@@ -40,7 +41,7 @@ function updateEvent() {
             })
         })
         .then(response => response.json())
-        .then(data => {
+        .then(data => {console.log("Response from server:", data);
             if (data.success) {
                 alert("Event updated successfully!");
                 window.location.href = "admin.html"; // Redirect to admin page

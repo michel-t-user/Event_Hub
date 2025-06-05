@@ -1,4 +1,5 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,17 +32,17 @@
         <div>
             <h1>Profil</h1>
             <label for="username"><strong>Nom d'utilisateur :</strong></label>
-            <span id="username-display"></span><br><br>
+            <span id="username-display"></span><br>
             <label for="auteur"><strong>Auteur :</strong></label>
-            <span id="auteur"></span><br><br>
+            <span id="auteur"></span><br>
             <label for="email"><strong>Email :</strong></label>
-            <span id="email-display"></span><br><br>
+            <span id="email-display"></span><br>
             <label for="password"><strong>Mot de passe :</strong></label>
             <input type="password" id="password-label" name="password-label" value="********" readonly>
-            <span class="toggle-password" onclick="togglePasswordVisibility()" title="Afficher/Masquer"><img src="img/eye.svg" style="width: 10px;height: 10px;" alt=""></span><br><br>
+            <span class="toggle-password" onclick="togglePasswordVisibility()" title="Afficher/Masquer"><img src="img/eye.svg" style="width: 10px;height: 10px;" alt=""></span><br>
             <label for="password-change"><strong>Changer de mot de passe :</strong></label>
             <input type="password" id="password-change" name="password-change" placeholder="Nouveau mot de passe">
-            <button type="submit" class="btn edit" onclick="updatePassword()">Mettre à jour</button><br><br>
+            <button type="submit" class="btn edit" onclick="updatePassword()">Mettre à jour</button><br>
             <button id="delete-account" class="btn delete" onclick="deleteAccount()">Supprimer mon compte</button>
         </div>
     </main>

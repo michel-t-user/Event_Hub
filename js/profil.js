@@ -51,7 +51,11 @@ function deleteAccount() {
 }
 function updatePassword() {
     const newPassword = NewPasswordInput.value;
-    const userId = user.id; 
+    const userId = user.id;
+    if (!newPassword || newPassword.length < 6 || newPassword.trim() === "") {
+        alert("Veuillez entrer un nouveau mot de passe valide et d'au moins 6 caractères.");
+        return;
+    }
     fetch(`http://localhost:3000/api/update_password/${userId}`, {
         method: 'PUT',
         headers: {

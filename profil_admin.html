@@ -1,10 +1,11 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>profil</title>
     <link rel="stylesheet" href="css/styleHub.css">
-    <script src="js/profil.js" defer></script>
+    <script defer src="js/profil.js"></script>
 </head>
 <body>
 <header>
@@ -44,8 +45,8 @@
             <span class="toggle-password" onclick="togglePasswordVisibility()" title="Afficher/Masquer"><img src="img/eye.svg" style="width: 10px;height: 10px;" alt=""></span><br>
             <label for="password-change"><strong>Changer de mot de passe :</strong></label>
             <input type="password" id="password-change" name="password-change" placeholder="Nouveau mot de passe">
-            <button type="submit" class="btn edit">Mettre à jour</button><br>
-            <button id="delete-account" class="btn delete">Supprimer mon compte</button>
+            <button type="submit" class="btn edit" onclick="updatePassword()">Mettre à jour</button><br>
+            <button id="delete-account" class="btn delete" onclick="deleteAccount()">Supprimer mon compte</button>
         </div>
     </main>
     <footer>

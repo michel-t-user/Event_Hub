@@ -1,5 +1,5 @@
 // Initialiser le formulaire d'événement
-var form=document.getElementById("form-event-form");
+var form=document.getElementById("event-form");
 var formData={};
 var title=document.getElementById("title");
 var category=document.getElementById("category");
@@ -8,11 +8,23 @@ var date=document.getElementById("date");
 var hour=document.getElementById("hour");
 var locationInput=document.getElementById("location"); 
 var submitButton=document.getElementById("submit-button");
-var user = JSON.parse(sessionStorage.getItem('user'));
+var user = null;
+try {
+    user = JSON.parse(sessionStorage.getItem('user'));
+} catch (e) {
+    console.warn("Utilisateur non authentifié ou données corrompues dans sessionStorage.");
+}
+
 
 // Gérer l'événement de soumission du formulaire
 submitButton.addEventListener("click", function(event) {
     event.preventDefault();
+     // Empêcher le rechargement de la page
+    if (!title.value || !category.value || !description.value || !date.value || !hour.value || !locationInput.value) {
+    alert("Veuillez remplir tous les champs.");
+    return;
+}
+
 
     formData = {
         title: title.value,
@@ -23,7 +35,6 @@ submitButton.addEventListener("click", function(event) {
         location: locationInput.value,
         author: user ? user.id : null 
     };
-    window.location.reload();//recharger la page après l'envoi du formulaire --pour reset en fait
     
     // Envoyer les données du formulaire au serveur
     fetch('http://localhost:3000/api/create_event', {
@@ -35,14 +46,20 @@ submitButton.addEventListener("click", function(event) {
 })
 .then(response => response.json())
 .then(data => {
-    console.log("Success:", data);
+    if(data.success) {
+        alert("Événement créé avec succès !");
+        window.location.href = "admin.html"; // Rediriger vers la page admin après la création de l'événement
+    }
+    else {
+        alert("Erreur lors de la création de l'événement : " + data.message);
+    }
 })
 .catch((error) => {
     console.error("Error:", error);
 });
 
-formData = {};
-});
+}
+);
 
 function toggleMenu() {
     const dropdown = document.getElementById("userDropdown");

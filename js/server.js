@@ -12,23 +12,36 @@ app.use(cors());
 
 
 // Créer un event -->venu depuis create_event.js de l'admin
-app.post('/api/create_event', async(req, res) => {
+app.post('/api/create_event', async (req, res) => {
     try {
-        console.log("posting request has arrived from api/create_event");
+        console.log("Posting request has arrived from /api/create_event");
+
         const post = req.body;
-        const author= await pool.query("SELECT auteur FROM \"users\" WHERE id = $1", [post.author]);
-        console.log(author);
-        if (author.rowCount > 0) {
-            const newpost = await pool.query("INSERT INTO \"Events\"(title,category,description,date,hour,location,author) values ($1, $2, $3, $4, $5, $6, $7)    RETURNING*", [post.title, post.category, post.description, post.date, post.hour, post.location, post.author]
+
+        // Vérifie si l'auteur est bien un auteur
+        const author = await pool.query(
+            'SELECT auteur FROM "users" WHERE id = $1',
+            [post.author]
+        );
+
+        if (author.rowCount > 0 && author.rows[0].auteur === true) {
+            // Insertion de l'événement
+            const newpost = await pool.query(
+                'INSERT INTO "Events"(title, category, description, date, hour, location, author) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
+                [post.title, post.category, post.description, post.date, post.hour, post.location, post.author]
             );
+
+            return res.status(201).json({ success: true, message: "Événement créé avec succès.", event: newpost.rows[0] });
+        } else {
+            return res.status(403).json({ success: false, message: "Publication illégale car vous n'êtes pas auteur." });
         }
-        else {
-            return res.status(403).json({ success: false, message: "Publication illégale car vous n'êtes pas auteur" });
-        }
+
     } catch (err) {
-        console.error(err.message);
+        console.error("Erreur lors de la création :", err.message);
+        res.status(500).json({ success: false, message: "Erreur interne du serveur." });
     }
-}); 
+});
+
 
 // Supprimer un event avec son id-->venu depuis admin.js de l'admin
 app.delete('/api/delete_event/:id', async(req, res) => {
@@ -37,7 +50,6 @@ app.delete('/api/delete_event/:id', async(req, res) => {
         const { id } = req.params;
         const deleteEvent = await pool.query("DELETE FROM \"Events\" WHERE id = $1", [id]);
         res.json("Event was deleted!");
-        console.log(res.json);
     } catch (err) {
         console.error(err.message);
     }
@@ -159,7 +171,7 @@ app.put('/api/update_password/:id', async(req, res) => {
 });
 
 // Récupérer les événements de l'administrateur -->venu depuis admin.js de l'admin
-app.get('/api/get_events_admin/:id', (req, res) => {
+app.get('/api/get_events_admin/:id', (req, res) => {console.log("getting request has arrived from api/get_events_admin");
     const { id } = req.params;
     // Récupérer les événements de l'administrateur avec l'ID spécifié
     pool.query("SELECT * FROM \"Events\" WHERE author = $1", [id])
@@ -193,12 +205,14 @@ app.get('/api/get_event/:id', (req, res) => {
 
 // Mettre à jour un événement spécifique avec son ID -->venu depuis edit_event.js de l'admin
 app.put('/api/update_event/:id', (req, res) => {
+    console.log("putting request has arrived from api/update_event");
     const { id } = req.params;
     const { title, category, description, date, hour, location } = req.body;
     // Mettre à jour un événement spécifique avec l'ID spécifié
     pool.query("UPDATE \"Events\" SET title = $1, category = $2, description = $3, date = $4, hour = $5, location = $6 WHERE id = $7 RETURNING *",
         [title, category, description, date, hour, location, id])
         .then(result => {
+            
             if (result.rowCount > 0) {
                 res.json({ success: true, message: "Event updated successfully", event: result.rows[0] });
             } else {

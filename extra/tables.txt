@@ -1,6 +1,0 @@
-Project Hub
-
-Tables
--Users tables (id,name,mail,password,author)
-
--Events tables(id,title,category,description,date,hour,location)

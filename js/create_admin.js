@@ -1,8 +1,8 @@
 var formData = {};
 formData = {
-        username: "Great Debaters",
-        email: "great_debaters@inpt.ac.ma",
-        password: "inpt-great-debaters@2025",
+        username: "Dev Web Club",
+        email: "dev_web_club@inpt.ac.ma",
+        password: "inpt-dev-web-club@2025",
         auteur: true
     };
     fetch('http://localhost:3000/api/register', {
